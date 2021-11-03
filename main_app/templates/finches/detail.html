@@ -62,6 +62,12 @@
               A <span style="color: {{ toy.color }}">{{ toy.color }}</span> {{ toy.name }}
             </span>
           </div>
+          <div class="card-action">
+            <form action="{% url 'dissoc_toy' finch.id toy.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn-small red">X</button>
+            </form>
+          </div>
         </div>
       {% endfor %}
     {% else %}
